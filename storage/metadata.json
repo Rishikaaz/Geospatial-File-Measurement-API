@@ -1808,5 +1808,531 @@
         }
       ]
     }
+  },
+  "636a5b8d63f0": {
+    "file_info": {
+      "id": "636a5b8d63f0",
+      "filename": "survey_dataset.kml",
+      "feature_count": 6,
+      "crs": "EPSG:4326",
+      "status": "COMPLETED",
+      "file_format": "KML",
+      "file_size_bytes": 4197,
+      "geometry_types": [
+        "LineString",
+        "Point",
+        "Polygon"
+      ],
+      "created_at": "2026-10-09T17:07:36.257822+00:00",
+      "error_message": null,
+      "file_path": "D:\\VS\\Geospatial File Measurement API\\storage\\uploads\\636a5b8d63f0_survey_dataset.kml"
+    },
+    "measurements": {
+      "file_id": "636a5b8d63f0",
+      "filename": "survey_dataset.kml",
+      "source_crs": "EPSG:4326",
+      "status": "COMPLETED",
+      "summary": {
+        "total_features": 6,
+        "polygon_count": 2,
+        "linestring_count": 2,
+        "point_count": 2,
+        "other_count": 0,
+        "total_area_sq_meters": 1309832.7634,
+        "total_area_sq_km": 1.309833,
+        "total_area_hectares": 130.983276,
+        "total_area_acres": 323.666225,
+        "total_length_meters": 7304.337,
+        "total_length_km": 7.304337
+      },
+      "features": [
+        {
+          "feature_id": "parcel_01",
+          "geometry_type": "Polygon",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  77.58,
+                  12.97
+                ],
+                [
+                  77.585,
+                  12.97
+                ],
+                [
+                  77.585,
+                  12.975
+                ],
+                [
+                  77.58,
+                  12.975
+                ],
+                [
+                  77.58,
+                  12.97
+                ]
+              ]
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "name": "Agri Parcel Alpha",
+            "description": "Rice cultivation sector A",
+            "zone_type": "Agricultural",
+            "crop": "Basmati Rice",
+            "soil_type": "Alluvial"
+          },
+          "measurement": {
+            "area": {
+              "sq_meters": 300418.2712,
+              "sq_kilometers": 0.300418,
+              "hectares": 30.041827,
+              "acres": 74.234972,
+              "perimeter_meters": 2192.5209,
+              "perimeter_kilometers": 2.192521
+            },
+            "length": null,
+            "calculated_crs": "EPSG:32643 (UTM Zone 43N)",
+            "method": "planar_projected_utm",
+            "measurement_note": null
+          }
+        },
+        {
+          "feature_id": "parcel_02",
+          "geometry_type": "Polygon",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  77.59,
+                  12.97
+                ],
+                [
+                  77.6,
+                  12.97
+                ],
+                [
+                  77.6,
+                  12.98
+                ],
+                [
+                  77.59,
+                  12.98
+                ],
+                [
+                  77.59,
+                  12.97
+                ]
+              ],
+              [
+                [
+                  77.593,
+                  12.973
+                ],
+                [
+                  77.597,
+                  12.973
+                ],
+                [
+                  77.597,
+                  12.977
+                ],
+                [
+                  77.593,
+                  12.977
+                ],
+                [
+                  77.593,
+                  12.973
+                ]
+              ]
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "name": "Solar Park Beta",
+            "description": "Renewable energy zone with substation exclusion zone",
+            "zone_type": "Industrial/Solar",
+            "capacity_mw": "25"
+          },
+          "measurement": {
+            "area": {
+              "sq_meters": 1009414.4922,
+              "sq_kilometers": 1.009414,
+              "hectares": 100.941449,
+              "acres": 249.431753,
+              "perimeter_meters": 6139.0866,
+              "perimeter_kilometers": 6.139087
+            },
+            "length": null,
+            "calculated_crs": "EPSG:32643 (UTM Zone 43N)",
+            "method": "planar_projected_utm",
+            "measurement_note": null
+          }
+        },
+        {
+          "feature_id": "road_01",
+          "geometry_type": "LineString",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [
+                77.575,
+                12.965
+              ],
+              [
+                77.585,
+                12.968
+              ],
+              [
+                77.595,
+                12.972
+              ],
+              [
+                77.605,
+                12.978
+              ],
+              [
+                77.615,
+                12.985
+              ]
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "name": "East-West Expressway",
+            "description": "Four-lane arterial corridor",
+            "road_class": "National Highway",
+            "lanes": "4",
+            "speed_limit": "80 km/h"
+          },
+          "measurement": {
+            "area": null,
+            "length": {
+              "meters": 4914.0873,
+              "kilometers": 4.914087,
+              "miles": 3.053472,
+              "feet": 16122.3337
+            },
+            "calculated_crs": "EPSG:32643 (UTM Zone 43N)",
+            "method": "planar_projected_utm",
+            "measurement_note": null
+          }
+        },
+        {
+          "feature_id": "canal_01",
+          "geometry_type": "LineString",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [
+                77.578,
+                12.98
+              ],
+              [
+                77.583,
+                12.982
+              ],
+              [
+                77.591,
+                12.986
+              ],
+              [
+                77.598,
+                12.989
+              ]
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "name": "Feeder Canal Route 3",
+            "description": "Concrete lined canal",
+            "type": "Irrigation Canal",
+            "flow_rate_cusecs": "120"
+          },
+          "measurement": {
+            "area": null,
+            "length": {
+              "meters": 2390.2497,
+              "kilometers": 2.39025,
+              "miles": 1.485232,
+              "feet": 7842.0265
+            },
+            "calculated_crs": "EPSG:32643 (UTM Zone 43N)",
+            "method": "planar_projected_utm",
+            "measurement_note": null
+          }
+        },
+        {
+          "feature_id": "pt_01",
+          "geometry_type": "Point",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              77.595,
+              12.975
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "name": "Survey Benchmark BM-104",
+            "description": "High precision geodetic triangulation pillar",
+            "elevation_m": "920.4",
+            "installed_year": "2021"
+          },
+          "measurement": {
+            "area": null,
+            "length": null,
+            "calculated_crs": null,
+            "method": "none",
+            "measurement_note": "Points have zero dimension (no area or length). Coordinates: [77.595, 12.975]"
+          }
+        },
+        {
+          "feature_id": "pt_02",
+          "geometry_type": "Point",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              77.582,
+              12.973
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "name": "Meteorological Station AWS-07",
+            "description": "Automated Weather Station"
+          },
+          "measurement": {
+            "area": null,
+            "length": null,
+            "calculated_crs": null,
+            "method": "none",
+            "measurement_note": "Points have zero dimension (no area or length). Coordinates: [77.582, 12.973]"
+          }
+        }
+      ]
+    }
+  },
+  "01d759a70b0a": {
+    "file_info": {
+      "id": "01d759a70b0a",
+      "filename": "sample_parcels_shapefile.zip",
+      "feature_count": 3,
+      "crs": "EPSG:4326",
+      "status": "COMPLETED",
+      "file_format": "Shapefile (.zip)",
+      "file_size_bytes": 1063,
+      "geometry_types": [
+        "MultiPolygon",
+        "Polygon"
+      ],
+      "created_at": "2026-10-09T17:07:36.356671+00:00",
+      "error_message": null,
+      "file_path": "D:\\VS\\Geospatial File Measurement API\\storage\\uploads\\01d759a70b0a_sample_parcels_shapefile.zip"
+    },
+    "measurements": {
+      "file_id": "01d759a70b0a",
+      "filename": "sample_parcels_shapefile.zip",
+      "source_crs": "EPSG:4326",
+      "status": "COMPLETED",
+      "summary": {
+        "total_features": 3,
+        "polygon_count": 3,
+        "linestring_count": 0,
+        "point_count": 0,
+        "other_count": 0,
+        "total_area_sq_meters": 2735817.0392,
+        "total_area_sq_km": 2.735817,
+        "total_area_hectares": 273.581704,
+        "total_area_acres": 676.034069,
+        "total_length_meters": 0.0,
+        "total_length_km": 0.0
+      },
+      "features": [
+        {
+          "feature_id": 1,
+          "geometry_type": "Polygon",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -122.42,
+                  37.77
+                ],
+                [
+                  -122.41,
+                  37.77
+                ],
+                [
+                  -122.41,
+                  37.78
+                ],
+                [
+                  -122.42,
+                  37.78
+                ],
+                [
+                  -122.42,
+                  37.77
+                ]
+              ]
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "NAME": "Mission District Lot 1",
+            "LAND_USE": "Commercial",
+            "ASSESSED_V": 4500000.0
+          },
+          "measurement": {
+            "area": {
+              "sq_meters": 977124.7895,
+              "sq_kilometers": 0.977125,
+              "hectares": 97.712479,
+              "acres": 241.452794,
+              "perimeter_meters": 3980.3846,
+              "perimeter_kilometers": 3.980385
+            },
+            "length": null,
+            "calculated_crs": "EPSG:32610 (UTM Zone 10N)",
+            "method": "planar_projected_utm",
+            "measurement_note": null
+          }
+        },
+        {
+          "feature_id": 2,
+          "geometry_type": "Polygon",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -122.43,
+                  37.76
+                ],
+                [
+                  -122.422,
+                  37.76
+                ],
+                [
+                  -122.422,
+                  37.768
+                ],
+                [
+                  -122.43,
+                  37.768
+                ],
+                [
+                  -122.43,
+                  37.76
+                ]
+              ]
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "NAME": "Castro District Lot 4",
+            "LAND_USE": "Residential",
+            "ASSESSED_V": 2800000.0
+          },
+          "measurement": {
+            "area": {
+              "sq_meters": 625449.8261,
+              "sq_kilometers": 0.62545,
+              "hectares": 62.544983,
+              "acres": 154.552018,
+              "perimeter_meters": 3184.5093,
+              "perimeter_kilometers": 3.184509
+            },
+            "length": null,
+            "calculated_crs": "EPSG:32610 (UTM Zone 10N)",
+            "method": "planar_projected_utm",
+            "measurement_note": null
+          }
+        },
+        {
+          "feature_id": 3,
+          "geometry_type": "MultiPolygon",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -122.405,
+                    37.785
+                  ],
+                  [
+                    -122.395,
+                    37.785
+                  ],
+                  [
+                    -122.395,
+                    37.795
+                  ],
+                  [
+                    -122.405,
+                    37.795
+                  ],
+                  [
+                    -122.405,
+                    37.785
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    -122.402,
+                    37.788
+                  ],
+                  [
+                    -122.398,
+                    37.788
+                  ],
+                  [
+                    -122.398,
+                    37.792
+                  ],
+                  [
+                    -122.402,
+                    37.792
+                  ],
+                  [
+                    -122.402,
+                    37.788
+                  ]
+                ]
+              ]
+            ]
+          },
+          "crs": "EPSG:4326",
+          "properties": {
+            "NAME": "SOMA Tech Hub",
+            "LAND_USE": "Mixed-Use",
+            "ASSESSED_V": 12500000.0
+          },
+          "measurement": {
+            "area": {
+              "sq_meters": 1133242.4236,
+              "sq_kilometers": 1.133242,
+              "hectares": 113.324242,
+              "acres": 280.030301,
+              "perimeter_meters": 5572.0575,
+              "perimeter_kilometers": 5.572057
+            },
+            "length": null,
+            "calculated_crs": "EPSG:32610 (UTM Zone 10N)",
+            "method": "planar_projected_utm",
+            "measurement_note": null
+          }
+        }
+      ]
+    }
   }
 }
