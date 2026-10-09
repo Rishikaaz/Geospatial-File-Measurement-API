@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geospatial File Measurement Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="/dashboard/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+            <line x1="8" y1="2" x2="8" y2="18"></line>
+            <line x1="16" y1="6" x2="16" y2="22"></line>
+          </svg>
+        </div>
+        <div>
+          <h1>Geospatial File Measurement API</h1>
+          <p class="subtitle">Shapefile & KML Processor with Auto-UTM Projection & Measurements</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="/docs" target="_blank" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Swagger Docs
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="main-grid">
+      <!-- Left Sidebar: Upload & File List & Summary -->
+      <aside class="sidebar-panel">
+        <!-- Upload Card -->
+        <div class="card upload-card">
+          <h2>Upload Geospatial File</h2>
+          <p class="card-desc">Accepts <code>.zip</code> (Shapefile) and <code>.kml</code> / <code>.kmz</code> files.</p>
+          
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" accept=".zip,.kml,.kmz" hidden />
+            <div class="dropzone-content">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <p class="dropzone-text"><strong>Click to upload</strong> or drag & drop</p>
+              <span class="file-hint">Shapefile .zip (with .shp, .shx, .dbf) or KML</span>
+            </div>
+            <div id="uploadProgress" class="progress-bar-container" style="display:none;">
+              <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+          </div>
+          <div id="uploadStatus" class="status-msg"></div>
+        </div>
+
+        <!-- Metrics / Summary Card -->
+        <div class="card summary-card" id="summaryCard" style="display:none;">
+          <div class="card-header-flex">
+            <h2>Measurement Summary</h2>
+            <span class="badge" id="fileCrsBadge">EPSG:4326</span>
+          </div>
+          <div class="stat-grid">
+            <div class="stat-item">
+              <span class="stat-label">Total Features</span>
+              <span class="stat-val" id="statFeatures">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Total Area</span>
+              <span class="stat-val highlight" id="statArea">0 m²</span>
+              <span class="stat-sub" id="statAreaSub">0 ha</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Total Length</span>
+              <span class="stat-val highlight-blue" id="statLength">0 m</span>
+              <span class="stat-sub" id="statLengthSub">0 km</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Geometries</span>
+              <span class="stat-val" id="statGeomBreakdown">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Uploads Card -->
+        <div class="card files-card">
+          <h2>Uploaded Files</h2>
+          <div class="files-list" id="filesList">
+            <p class="empty-state">No files uploaded yet.</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Area: Map & Measurements Table -->
+      <section class="content-panel">
+        <!-- Interactive Map -->
+        <div class="card map-card">
+          <div class="card-header-flex">
+            <h2>Interactive Map Viewer</h2>
+            <div class="map-controls">
+              <button id="btnResetMap" class="btn btn-sm btn-secondary">Fit Bounds</button>
+            </div>
+          </div>
+          <div id="map" class="map-container"></div>
+        </div>
+
+        <!-- Measurements Breakdown Table -->
+        <div class="card table-card">
+          <div class="card-header-flex">
+            <h2>Feature Measurements</h2>
+            <div class="table-filters">
+              <select id="geomFilter" class="select-input">
+                <option value="">All Geometries</option>
+                <option value="Polygon">Polygons (Area)</option>
+                <option value="LineString">LineStrings (Length)</option>
+                <option value="Point">Points</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table" id="measurementsTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Type</th>
+                  <th>Area / Length Calculation</th>
+                  <th>Calculated CRS / Method</th>
+                  <th>Properties</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr>
+                  <td colspan="5" class="empty-state">Upload a file or select one from the list to view measurements.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="/dashboard/js/app.js"></script>
+</body>
+</html>
